@@ -1,0 +1,7 @@
+# Project exclude paths
+# 깃 체크 대상에서 제외하고 싶은 이름 작성하면 commit에서 제외
+/.gradle/
+/build/
+/build/classes/java/main/
+.gradle
+.idea

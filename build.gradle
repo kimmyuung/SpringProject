@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.6'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    // 스프링 부트의 의존성들을 관리해 주는 플러그인
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories { // 각종 의존성(라이브러리)를 어떤 원격 저장소에서 받을지 정함
+    mavenCentral()
+    jcenter()
+    // dependencies 땡겨오는 url
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation 'junit:junit:4.13.1'// JPA 라이브러리
+    //   runtimeOnly 'com.h2database:h2' // H2 라이브러리 [ H2: 관계형 데이터베이스  = 인메모리] db는 한개만 사용하자!
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
