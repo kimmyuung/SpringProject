@@ -9,12 +9,31 @@
 <p th:text="'Hello '+ ${data}" > 안녕하세요</p>
 <div>
     <a> 게시판 공부 </a>
+    <a href="/index2"> 머스테치 공부</a>
 </div>
 <div>
     <p>엑셀 모듈 공부</p>
     <p>자바 채팅 프로그램 모듈 공부 </p>
 </div>
 
+<div>
+    <div>
+        1. {{>layout/hader}}
+        - {{>}}는 현재 머스테치 파일을 기준으로 다른 파일을 가져옵니다.
+        1. {{#posts}}
+        - posts 라는 List를 순회
+        2. {{id}} 등의 {{변수명}}
+        - List에서 뽑아낸 객체의 필드를 사용합니다.
+
+        1. {{post.id}}
+        - 머스테치는 객체의 필드 접근 시 점(Dot)으로 구분합니다.
+        - 즉, Post 클래스 id에 대한 접근은 post.id로 사용할 수 있습니다.
+        2. readonly
+        - input 태그에 읽기 가능만 허용하는 속성입니다.
+        - id와 author는 수정할 수 없도록 읽기만 허용하도록 추가합니다.
+    </div>
+
+</div>
 
 </body>
 </html>
